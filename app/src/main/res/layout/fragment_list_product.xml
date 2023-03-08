@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ChaChi"
+            android:text="C-STOK"
             android:textColor="@color/white"
             android:textSize="@dimen/_25ssp"
             android:textStyle="bold"

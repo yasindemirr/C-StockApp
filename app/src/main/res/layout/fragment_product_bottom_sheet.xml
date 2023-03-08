@@ -69,7 +69,7 @@
                 android:inputType="number"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:id="@+id/productPrice"
-                android:drawableEnd="@drawable/dollar"
+                android:drawableEnd="@drawable/turkish_lira"
                 android:hint="Ürün Fiyatı"
                 android:layout_marginStart="@dimen/_1sdp"
                 android:background="@drawable/table_backround">

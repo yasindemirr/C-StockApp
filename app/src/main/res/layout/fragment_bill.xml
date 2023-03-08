@@ -20,7 +20,7 @@
             android:paddingEnd="@dimen/_10sdp"
             android:scaleType="fitXY"
             android:id="@+id/billLogo"
-            android:src="@drawable/chachi_orj"
+            android:src="@drawable/c_stok"
             >
         </ImageView>
         <LinearLayout
@@ -144,7 +144,7 @@
                 android:layout_marginTop="@dimen/_1sdp"
                 android:layout_marginEnd="@dimen/_1sdp"
                 android:layout_marginBottom="@dimen/_1sdp"
-                android:drawableEnd="@drawable/dollar"
+                android:drawableEnd="@drawable/turkish_lira"
                 android:layout_width="@dimen/_60sdp"
                 android:background="@color/white"
                 android:gravity="start"
@@ -158,7 +158,7 @@
                 android:layout_marginEnd="@dimen/_1sdp"
                 android:layout_weight="1"
                 android:layout_marginBottom="@dimen/_1sdp"
-                android:drawableEnd="@drawable/dollar"
+                android:drawableEnd="@drawable/turkish_lira"
                 android:background="@color/white"
                 android:gravity="start"
                 android:paddingStart="@dimen/_3sdp"

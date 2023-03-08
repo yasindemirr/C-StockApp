@@ -36,7 +36,7 @@ class ProductAdapter:RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
         holder.binding.apply {
             productUrunAdi.text=product.urunAdi
             productAdet.text=product.adet.toString()
-            productFiyat.text="${product.fiyat} $"
+            productFiyat.text="${product.fiyat} TL"
             product.image?.let {
                 productImage.setImageBitmap(BitmapFactory.decodeByteArray(it,0,it.size))
             }

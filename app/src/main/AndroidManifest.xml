@@ -9,9 +9,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/chachi_raound"
+        android:icon="@drawable/c_stok"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/chachi_raound"
+        android:roundIcon="@drawable/c_stok"
         android:supportsRtl="true"
         android:theme="@style/Theme.Chachi"
         tools:targetApi="31">
