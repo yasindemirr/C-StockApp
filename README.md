@@ -2,8 +2,10 @@
 
 Facilitate your inventory tracking, efficiently manage your products, and increase the profitability of your business with C_Stock App application
 
-<img src="https://user-images.githubusercontent.com/123153282/223708712-fc387513-ae5a-4063-a0b9-88bdd23bd7fc.png" width="200" height="400">   <img src="https://user-images.githubusercontent.com/123153282/223700605-b54cc909-b672-4ab1-997f-f8d5fa7ac3a3.png" width="200" height="400">
-<img src="https://user-images.githubusercontent.com/123153282/223700383-1f6586b9-46e5-44bd-949b-d05b68f2f7f0.png" width="200" height="400">   <img src="https://user-images.githubusercontent.com/123153282/223700399-30b3542a-71b1-4acb-9038-ea4a0ccce357.png" width="200" height="400">
-<img src="https://user-images.githubusercontent.com/123153282/223700393-ce2519cd-e773-421d-bd69-748825a836b9.png" width="200" height="400">   <img src="https://user-images.githubusercontent.com/123153282/223700408-d89d45ea-76ac-4df7-873f-df5ab997ecdd.png" width="200" height="400">
-<img src="https://user-images.githubusercontent.com/123153282/223708719-95179455-2f0a-48a2-bc35-5c9ee4587759.png" width="200" height="400">   <img src="https://user-images.githubusercontent.com/123153282/223700390-5420c41e-fd8b-4cdc-a155-f19592b5b571.png" width="200" height="400">
+<img src="https://user-images.githubusercontent.com/123153282/223708712-fc387513-ae5a-4063-a0b9-88bdd23bd7fc.png" width="200" height="400">   <img src="https://user-images.githubusercontent.com/123153282/223713442-92ca13b6-04cf-4aa1-942c-cc0e6c9bb1be.png" width="200" height="400">
+<img src="https://user-images.githubusercontent.com/123153282/223713456-31f613ae-9634-46ac-af61-d1a19493b1e4.png" width="200" height="400">   <img src="https://user-images.githubusercontent.com/123153282/223713450-f598618e-8c8f-46af-a9aa-458ac1470e22.png" width="200" height="400">
+<img src="https://user-images.githubusercontent.com/123153282/223713452-a968ff65-3c63-4384-bbf4-a8d39744f80f.png" width="200" height="400">   <img src="https://user-images.githubusercontent.com/123153282/223713435-508ac213-9e59-4303-b3f9-dc2781b4de0b.png" width="200" height="400">
+<img src="https://user-images.githubusercontent.com/123153282/223713439-c836b7b6-1fb8-405f-ac38-e57b1a388a68.png" width="200" height="400">   <img src="https://user-images.githubusercontent.com/123153282/223700390-5420c41e-fd8b-4cdc-a155-f19592b5b571.png" width="200" height="400">
+
+
 
