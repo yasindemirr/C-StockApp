@@ -1,12 +1,19 @@
 package com.demir.chachi.ui
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -21,12 +28,14 @@ import com.demir.chachi.model.Product
 import com.demir.chachi.viewModel.ProdeuctViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ListProductFragment : Fragment() {
     private lateinit var binding: FragmentListProductBinding
     private var addTolist= arrayListOf<Product>()
     private val productViewModel: ProdeuctViewModel by viewModels()
+    private lateinit var alertBuilder: AlertDialog.Builder
     val listAdapter= ListAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,22 +59,27 @@ class ListProductFragment : Fragment() {
             it.findNavController().navigate(R.id.action_listProductFragment_to_billFragment)
         }
         observeData()
-        removeProduct(view)
+        removeProduct()
+        editQuantity()
+        checkFloatingButton()
     }
 
     private fun observeData() {
+        productViewModel.realAllListProduct().observe(viewLifecycleOwner, Observer {
+
+            listAdapter.differ.submitList(it)
+        })
+        /*
         productViewModel.realAllProduct().observe(viewLifecycleOwner, Observer {
             for (item in it){
                 if (item.isAddList==1){
-                    if (!addTolist.contains(item)){
                         addTolist.add(item)
-
-                    }
                 }
             }
             listAdapter.differ.submitList(addTolist)
-
         })
+
+         */
 
     }
     private fun setRec() {
@@ -75,34 +89,58 @@ class ListProductFragment : Fragment() {
         }
 
     }
-    private fun removeProduct(view: View) {
-        val itemTouchHelperCallBack=object : ItemTouchHelper.SimpleCallback(
-            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
-            ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT
-        ){
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return true
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position= viewHolder.adapterPosition
-                val product =listAdapter.differ.currentList.get(position)
-                productViewModel.updateAddList(product.id,0,false)
-                productViewModel.updateQuantityList(product.id,0,product.adet!!+product.listeAdedi)
-                Snackbar.make(view,"Deleted article successfully", Snackbar.LENGTH_SHORT).apply {
-                    setAction("Geri Al"){
-                        productViewModel.insertProduct(product)
-                    }
-                    show()
+    private fun checkFloatingButton() {
+        binding.cRec.addOnScrollListener(object :RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if (dy > 0) {
+                    binding.floatingMenu.visibility=View.GONE
+                } else if (dy < 0) {
+                    binding.floatingMenu.visibility=View.VISIBLE
                 }
             }
+        })
+    }
+    private fun removeProduct() {
+        listAdapter.onlickDelete={product->
+            alertBuilder= AlertDialog.Builder(requireContext())
+            alertBuilder.setTitle("Uyarı")
+            alertBuilder.setMessage("Silmek istediğinizden emin misiniz?")
+            alertBuilder.setPositiveButton("Evet"){dialog,which->
+                productViewModel.updateAddList(product.id,0,false)
+                productViewModel.updateQuantityList(product.id,0,product.adet!!+product.listeAdedi)
+                alertBuilder.create().dismiss()
+            }
+            alertBuilder.setNegativeButton("Hayır"){dialog,which->
+                alertBuilder.create().dismiss()
+            }
+            alertBuilder.create().setOnShowListener {
+                alertBuilder.create().getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.parseColor("#FFE500"))
+                alertBuilder.create().getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FFE500"))
+            }
+            alertBuilder.show()
         }
-        ItemTouchHelper(itemTouchHelperCallBack).apply {
-            attachToRecyclerView(binding.cRec)
+    }
+    private fun editQuantity(){
+        listAdapter.editQuantity={product->
+            val alertView =LayoutInflater.from(requireContext()).inflate(R.layout.alert_dialog,null)
+            alertBuilder= AlertDialog.Builder(requireContext())
+            alertBuilder.setView(alertView)
+            val adet=alertView.findViewById<EditText>(R.id.addQuantityhey)
+            val button=alertView.findViewById<Button>(R.id.alertButton)
+            val dialog=alertBuilder.create()
+            dialog.show()
+            button.setOnClickListener {
+                if (adet.text.toString().toInt() <= product.adet!!.toInt()) {
+                    productViewModel.updateQuantityList(product.id, adet.text.toString().toInt(),
+                        product.adet+product.listeAdedi-adet.text.toString().toInt())
+                    productViewModel.updateAddList(product.id,1,false)
+                    dialog.dismiss()
+                }else{
+                    Toast.makeText(context,"Seçtiğin adet için teterli stok yok", Toast.LENGTH_SHORT).show()
+                }
+            }
+
         }
     }
 }

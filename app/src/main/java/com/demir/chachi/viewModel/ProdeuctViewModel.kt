@@ -19,6 +19,10 @@ class ProdeuctViewModel
             return repository.readAllProduct().flowOn(Dispatchers.Main)
                 .asLiveData(viewModelScope.coroutineContext)
         }
+    fun realAllListProduct():LiveData<List<Product>>{
+        return repository.readAllListProduct().flowOn(Dispatchers.Main)
+            .asLiveData(viewModelScope.coroutineContext)
+    }
     fun insertProduct(product: Product)=viewModelScope.launch {
         repository.insertProduct(product)
     }
@@ -36,6 +40,6 @@ class ProdeuctViewModel
     fun updateQuantityList(userId: Int, newListeAdedi: Int,yeniAdet:Int)
     =viewModelScope.launch {
         repository.updateListQuantiy(userId,newListeAdedi,yeniAdet)
+        }
     }
 
-}

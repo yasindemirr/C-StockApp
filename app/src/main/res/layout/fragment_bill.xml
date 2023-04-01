@@ -1,162 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.BillFragment">
-    <LinearLayout
+    tools:context=".ui.BillFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/linnn"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/_20sdp"
-        app:layout_constraintStart_toStartOf="parent">
-        <ImageView
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:paddingEnd="@dimen/_10sdp"
-            android:scaleType="fitXY"
-            android:id="@+id/billLogo"
-            android:src="@drawable/c_stok"
-            >
-        </ImageView>
+        >
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/infoLineer"
-            android:layout_marginStart="@dimen/_3sdp"
-            android:orientation="vertical">
-            <TextView
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/linnn"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageView
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:scaleType="fitXY"
+                android:id="@+id/billLogo"
+                android:src="@drawable/c_stok_logo"
+                >
+            </ImageView>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bilgileri Düzenle"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="#3F51B5"
-                android:id="@+id/düzenle">
+                android:id="@+id/infoLineer"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bilgileri Düzenle"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="#3F51B5"
+                    android:id="@+id/düzenle">
 
-            </TextView>
+                </TextView>
 
-            <TextView
-                android:layout_width="@dimen/_180sdp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textColor="@color/item_text_color"
-                android:textSize="@dimen/_13ssp"
-                android:maxLines="3"
-                android:id="@+id/billAdress"
-                android:text="@string/adres">
+                <TextView
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/item_text_color"
+                    android:textSize="@dimen/_13ssp"
+                    android:maxLines="3"
+                    android:id="@+id/billAdress"
+                    android:text="@string/adres">
 
-            </TextView>
-            <TextView
-                android:layout_width="@dimen/_180sdp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:id="@+id/billPhone"
-                android:textSize="@dimen/_12ssp"
-                android:textColor="@color/item_text_color"
-                android:maxLines="1"
-                android:text="@string/telefon">
-            </TextView>
-            <TextView
-                android:layout_width="@dimen/_180sdp"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="@dimen/_12ssp"
-                android:id="@+id/billMail"
-                android:textColor="@color/item_text_color"
-                android:maxLines="1"
-                android:text="@string/mail">
-            </TextView>
+                </TextView>
+                <TextView
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:id="@+id/billPhone"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/item_text_color"
+                    android:maxLines="1"
+                    android:text="@string/telefon">
+                </TextView>
+                <TextView
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12ssp"
+                    android:id="@+id/billMail"
+                    android:textColor="@color/item_text_color"
+                    android:maxLines="1"
+                    android:text="@string/mail">
+                </TextView>
 
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/_15ssp"
-        android:id="@+id/sevk"
-        android:textColor="@color/item_text_color"
-        app:layout_constraintTop_toBottomOf="@id/linnn"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:text="ÜRÜN LİSTESİ">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_15ssp"
+            android:id="@+id/sevk"
+            android:textColor="@color/item_text_color"
+            app:layout_constraintTop_toBottomOf="@id/linnn"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="ÜRÜN LİSTESİ">
 
-    </TextView>
+        </TextView>
 
 
-    <TextView
-        android:id="@+id/billSevkDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_13sdp"
-        android:text="Tarihi:19/07/2022"
-        android:textColor="@color/item_text_color"
-        android:textSize="@dimen/_12ssp"
-        app:layout_constraintBottom_toBottomOf="@id/sevk"
-        app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:id="@+id/billSevkDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_13sdp"
+            android:text="Tarihi:19/07/2022"
+            android:textColor="@color/item_text_color"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@id/sevk"
+            app:layout_constraintStart_toStartOf="parent">
 
-    </TextView>
+        </TextView>
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:id="@+id/tabLayout"
-        android:background="@color/table_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sevk"
->
-
-        <TableRow android:layout_height="7dp">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:id="@+id/tabLayout"
+            android:background="@color/table_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sevk"
+            >
             <TextView
-                android:layout_marginHorizontal="@dimen/_1sdp"
-                android:layout_marginTop="@dimen/_1sdp"
-                android:layout_marginBottom="@dimen/_1sdp"
-                android:layout_width="@dimen/_100sdp"
+                android:layout_marginVertical="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:background="@color/white"
                 android:gravity="start"
                 android:paddingStart="@dimen/_3sdp"
                 android:text="Ürün Kodu"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp" />
+                android:textSize="@dimen/_14ssp"
+                tools:ignore="RtlSymmetry" />
 
             <TextView
-
-                android:layout_margin="@dimen/_1sdp"
-                android:layout_width="@dimen/_45sdp"
+                android:layout_marginVertical="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:paddingHorizontal="@dimen/_2sdp"
                 android:background="@color/white"
                 android:gravity="start"
                 android:paddingStart="@dimen/_3sdp"
                 android:text="Adet"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp" />
+                android:textSize="@dimen/_14ssp" />
 
             <TextView
-                android:layout_marginTop="@dimen/_1sdp"
-                android:layout_marginEnd="@dimen/_1sdp"
-                android:layout_marginBottom="@dimen/_1sdp"
-                android:drawableEnd="@drawable/turkish_lira"
-                android:layout_width="@dimen/_60sdp"
+                android:layout_marginVertical="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"
                 android:background="@color/white"
                 android:gravity="start"
                 android:paddingStart="@dimen/_3sdp"
                 android:text="Fiyat"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp" />
+                android:textSize="@dimen/_14ssp" />
 
             <TextView
-                android:layout_marginTop="@dimen/_1sdp"
-                android:layout_marginEnd="@dimen/_1sdp"
-                android:layout_weight="1"
+                android:layout_margin="@dimen/_1sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:layout_marginBottom="@dimen/_1sdp"
                 android:drawableEnd="@drawable/turkish_lira"
                 android:background="@color/white"
@@ -164,37 +173,37 @@
                 android:paddingStart="@dimen/_3sdp"
                 android:text="Tutar"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp" />
-        </TableRow>
-    </TableLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        tools:listitem="@layout/bill_item"
-        android:id="@+id/billRec"
-        app:layout_constraintEnd_toEndOf="parent">
-    </androidx.recyclerview.widget.RecyclerView>
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:id="@+id/resultTabLayout"
-        android:background="@color/table_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/billRec"
-        >
-        <TableRow
-
+                android:textSize="@dimen/_14ssp" />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            tools:listitem="@layout/bill_item"
+            android:id="@+id/billRec"
+            app:layout_constraintEnd_toEndOf="parent">
+        </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:id="@+id/resultTabLayout"
+            android:background="@color/table_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/billRec"
             >
 
+
             <TextView
-                android:layout_width="@dimen/_209sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4.1"
                 android:layout_marginHorizontal="@dimen/_1sdp"
                 android:layout_marginBottom="@dimen/_1sdp"
                 android:background="@color/white"
@@ -202,31 +211,42 @@
                 android:text="Toplam Tutar"
                 android:textColor="@color/black"
 
-                android:textSize="@dimen/_17ssp" />
+                android:textSize="@dimen/_14ssp" />
             <TextView
-                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:layout_marginEnd="@dimen/_1sdp"
                 android:layout_marginBottom="@dimen/_1sdp"
                 android:background="@color/white"
                 android:textColor="@color/black"
                 android:text="Toplam"
+                android:drawableEnd="@drawable/turkish_lira"
                 android:gravity="start"
                 android:paddingStart="@dimen/_3sdp"
                 android:id="@+id/totalResult"
-                android:textSize="@dimen/_17ssp" />
-        </TableRow>
-    </TableLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="wrap_content"
-        android:id="@+id/tamamla"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/button_text_color"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:background="@drawable/buton_back"
-        android:text="Tamamla">
+                android:textSize="@dimen/_14ssp" />
 
-    </androidx.appcompat.widget.AppCompatButton>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tamamla"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+
+            android:background="@drawable/buton_back"
+            android:text="Tamamla"
+            android:textColor="@color/button_text_color"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:elevation="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_goneMarginBottom="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultTabLayout">
+
+        </androidx.appcompat.widget.AppCompatButton>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

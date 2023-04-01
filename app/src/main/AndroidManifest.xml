@@ -9,9 +9,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/c_stok"
+        android:icon="@drawable/c_stok_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/c_stok"
+        android:roundIcon="@drawable/c_stok_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Chachi"
         tools:targetApi="31">
@@ -29,6 +29,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

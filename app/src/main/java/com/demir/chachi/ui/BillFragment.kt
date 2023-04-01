@@ -94,7 +94,7 @@ class BillFragment : Fragment() {
                 Toast.makeText(context,"Liste Tamamlandı",Toast.LENGTH_SHORT).show()
             }
             billAdapter.differ.submitList(addTolist)
-            binding.totalResult.text="${priceList.sum().toString()}TL"
+            binding.totalResult.text="${priceList.sum().toString()}"
 
         })
     }

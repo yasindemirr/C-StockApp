@@ -3,19 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tabLayout"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/table_back"
         app:layout_constraintEnd_toEndOf="parent"
         >
-        <TableRow
-            >
+
             <TextView
-                android:layout_width="@dimen/_100sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:id="@+id/code"
                 android:text="Ürün Kodu"
                 android:textColor="@color/black"
@@ -24,25 +26,27 @@
                 android:background="@color/white"
                 android:paddingStart="@dimen/_3sdp"
                 android:gravity="start"
-                android:textSize="@dimen/_17ssp" />
+                android:textSize="@dimen/_14ssp" />
             <TextView
-               android:layout_width="@dimen/_45sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:paddingHorizontal="@dimen/_2sdp"
                 android:textColor="@color/black"
                 android:id="@+id/quantity"
-                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_marginEnd="@dimen/_1sdp"
                 android:layout_marginBottom="@dimen/_1sdp"
                 android:background="@color/white"
                 android:text="Adet"
                 android:paddingStart="@dimen/_3sdp"
                 android:gravity="start"
-                android:textSize="@dimen/_17ssp" />
+                android:textSize="@dimen/_14ssp" />
 
             <TextView
                 android:id="@+id/price"
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_1sdp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"
                 android:layout_marginEnd="@dimen/_1sdp"
                 android:layout_marginBottom="@dimen/_1sdp"
                 android:background="@color/white"
@@ -50,21 +54,21 @@
                 android:paddingStart="@dimen/_3sdp"
                 android:text="Fiyat"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp" />
+                android:textSize="@dimen/_14ssp" />
             <TextView
                 android:layout_marginEnd="@dimen/_1sdp"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/_1sdp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:id="@+id/total"
                 android:background="@color/white"
-                android:layout_marginBottom="@dimen/_1sdp"
+                android:drawableEnd="@drawable/turkish_lira"
                 android:gravity="start"
                 android:paddingStart="@dimen/_3sdp"
                 android:text="Tutar"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17ssp" />
-        </TableRow>
-    </TableLayout>
+                android:textSize="@dimen/_14ssp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

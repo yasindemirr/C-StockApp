@@ -18,6 +18,10 @@ interface PrdouctDao {
     suspend fun deleteProduct(product: Product)
     @Query("SELECT * FROM product ORDER BY id")
     fun readAllProduct():Flow<List<Product>>
+     @Query("SELECT * FROM product WHERE isAddList=1")
+     fun readAllListProduct():Flow<List<Product>>
+
+
 }
 
 @Dao

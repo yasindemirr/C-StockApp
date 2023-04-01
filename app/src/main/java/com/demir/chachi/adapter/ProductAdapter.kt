@@ -17,7 +17,7 @@ class ProductAdapter:RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     private val diffUtil=object :DiffUtil.ItemCallback<Product>(){
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem.id==newItem.id
+            return oldItem.id==newItem.id&&oldItem.listeAdedi==newItem.listeAdedi
         }
 
         override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
@@ -35,8 +35,8 @@ class ProductAdapter:RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
        val product=differ.currentList[position]
         holder.binding.apply {
             productUrunAdi.text=product.urunAdi
-            productAdet.text=product.adet.toString()
-            productFiyat.text="${product.fiyat} TL"
+            productAdet.text="${product.adet.toString()} adet kaldı"
+            productFiyat.text=product.fiyat
             product.image?.let {
                 productImage.setImageBitmap(BitmapFactory.decodeByteArray(it,0,it.size))
             }
@@ -61,12 +61,17 @@ class ProductAdapter:RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
             addQuantity?.let {
                 it.invoke(product)
             }
-
+        }
+        holder.binding.prductDelete.setOnClickListener {
+            deleteItem?.let {
+                it.invoke(product)
+            }
         }
 
     }
     var onlickEdit:((Product)-> Unit)? = null
     var addToList:((Product)-> Unit)? = null
+    var deleteItem:((Product)-> Unit)? = null
     var addQuantity:((Product)-> Unit)? = null
 
     override fun getItemCount(): Int {

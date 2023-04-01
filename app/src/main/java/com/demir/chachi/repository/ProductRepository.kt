@@ -18,6 +18,7 @@ class ProductRepository
     }
     suspend fun updateAddList(userId: Int, newAddList: Int,isEnableQuantity:Boolean){
         productDao.updateAddList(userId,newAddList,isEnableQuantity)
+
     }
     suspend fun updateListQuantiy(userId: Int, newListeAdedi: Int,yeniAdet:Int){
         productDao.updateQuantity(userId,newListeAdedi,yeniAdet)
@@ -25,6 +26,7 @@ class ProductRepository
     fun readAllProduct(): Flow<List<Product>>{
       return  productDao.readAllProduct()
     }
-
-
+    fun readAllListProduct(): Flow<List<Product>>{
+        return  productDao.readAllListProduct()
+    }
 }

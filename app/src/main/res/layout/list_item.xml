@@ -1,46 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    android:layout_margin="@dimen/_4sdp"
-    android:id="@+id/listItemBack"
+    app:cardElevation="@dimen/_5sdp"
+    app:cardCornerRadius="@dimen/_7sdp"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@color/white"
     android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_7sdp"
-        android:padding="@dimen/_10sdp"
-
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="@dimen/_100sdp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Deneme"
-            android:id="@+id/listProductName"
-            android:textColor="@color/black"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/linearBack"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:src="@drawable/chachi"
+                android:id="@+id/listProductImage"
+                >
+            </ImageView>
 
-            android:textSize="@dimen/_20ssp">
-        </TextView>
-        <TextView
-            android:layout_width="@dimen/_80sdp"
-            android:layout_height="wrap_content"
-            android:text="Deneme"
-            android:id="@+id/listProductQuantity"
+                <TextView
+                    android:id="@+id/listProductName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:gravity="start"
+                    android:text="ÜRÜN ADI"
+                    android:fontFamily="@font/hind_semibold"
+                    android:textColor="@color/item_text_color"
+                    android:textSize="@dimen/_16ssp">
+                </TextView>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/listDelete"
+                    app:tint="@color/edit_text_color"
+                    android:src="@drawable/delete"
+                    tools:ignore="NestedWeights">
+                </ImageView>
 
-            android:textColor="@color/black"
-            android:textSize="@dimen/_20ssp">
-        </TextView>
-        <TextView
-            android:layout_width="@dimen/_80sdp"
-            android:layout_height="wrap_content"
-            android:text="Deneme"
-            android:id="@+id/listProductPrice"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_20ssp">
-        </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editQuantity"
+                    android:drawablePadding="@dimen/_5sdp"
+
+                    android:text="Adet"
+                    android:drawableTint="@color/edit_text_color"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableEnd="@drawable/edit__1"
+                    android:gravity="center"
+                    android:fontFamily="@font/hind_medium"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/edit_text_color">
+
+                </TextView>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Adet Fiyatı"
+                android:fontFamily="@font/hind_medium"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/edit_text_color">
+
+            </TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Toplam"
+                android:gravity="center"
+                android:fontFamily="@font/hind_medium"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/edit_text_color">
+
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3 Adet"
+                android:id="@+id/listProductQuantity"
+                android:gravity="center"
+                android:fontFamily="@font/hind_medium"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/add_price_quantity">
+
+            </TextView>
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Toplam"
+                    android:drawableTint="@color/add_price_color"
+                    android:id="@+id/listProductPrice"
+                    android:gravity="center"
+                    android:fontFamily="@font/hind_medium"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/add_price_color"
+                    app:drawableLeftCompat="@drawable/turkish_lira">
+
+                </TextView>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Toplam"
+                    android:drawableTint="@color/add_price_color"
+                    android:id="@+id/listTotalProductPrice"
+                    android:gravity="center"
+                    android:fontFamily="@font/hind_medium"
+                    android:textSize="@dimen/_14ssp"
+                    android:textColor="@color/add_price_color"
+                    app:drawableLeftCompat="@drawable/turkish_lira">
+
+                </TextView>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
     </LinearLayout>
 
-
-</RelativeLayout>
+</androidx.cardview.widget.CardView>

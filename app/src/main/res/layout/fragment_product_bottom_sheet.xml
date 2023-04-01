@@ -54,7 +54,7 @@
                 android:paddingStart="@dimen/_4sdp"
                 android:hint="Ürün Kodu"
                 android:textColor="@color/edit_text_color"
-                android:maxLength="10"
+                android:maxLength="18"
                 android:layout_marginStart="@dimen/_1sdp"
                 android:background="@drawable/table_backround"
                 android:id="@+id/productCode"
@@ -67,6 +67,7 @@
                 android:layout_height="@dimen/_30sdp"
                 android:paddingStart="@dimen/_4sdp"
                 android:inputType="number"
+                android:maxLength="18"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:id="@+id/productPrice"
                 android:drawableEnd="@drawable/turkish_lira"
@@ -80,6 +81,7 @@
                 android:layout_height="@dimen/_30sdp"
                 android:paddingStart="@dimen/_4sdp"
                 android:inputType="number"
+                android:maxLength="18"
                 android:textColor="@color/edit_text_color"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:hint="Ürün Adedi"
@@ -91,20 +93,21 @@
         </LinearLayout>
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="@dimen/_120sdp"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_4sdp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_weight="1"
             android:id="@+id/imageProduct">
-            <TextView
+            <ImageView
                 android:layout_width="match_parent"
+                android:padding="@dimen/_20sdp"
+                app:tint="@color/table_back"
                 android:layout_height="match_parent"
-                android:text="Resmi Yükle"
-                android:background="@drawable/table_backround"
-                android:textSize="@dimen/_30ssp"
-                android:gravity="center"
-                android:textColor="@color/black">
+                android:background="@drawable/add_image_backround"
+                android:src="@drawable/edit"
+                android:gravity="center">
 
-            </TextView>
+            </ImageView>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

@@ -3,6 +3,8 @@ package com.demir.chachi.ui
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -27,7 +29,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.demir.chachi.R
 import com.demir.chachi.adapter.ProductAdapter
 import com.demir.chachi.databinding.FragmentAddProductBinding
-import com.demir.chachi.databinding.FragmentListProductBinding
 import com.demir.chachi.model.Product
 import com.demir.chachi.viewModel.ProdeuctViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -63,17 +64,19 @@ class AddProductFragment : Fragment() {
             ProductBottomSheet(null).show(requireActivity().supportFragmentManager,
                 "new sheet task")
         }
-
         setRec()
         observeProductData()
         addAdapter.onlickEdit = {
             ProductBottomSheet(it).show(requireActivity().supportFragmentManager, "new sheet task")
         }
         addAdapter.addToList = {
-            productViewModel.updateAddList(it.id,1,false)
-            isCheckedAdd=false
-            Snackbar.make(view,"Listeye eklendi",Snackbar.LENGTH_SHORT).show()
-
+            if (it.listeAdedi!=0) {
+                productViewModel.updateAddList(it.id, 1, false)
+                isCheckedAdd = false
+                Snackbar.make(view, "Listeye eklendi", Snackbar.LENGTH_SHORT).show()
+            }else{
+                Snackbar.make(view, "Girilen adet boş olamaz", Snackbar.LENGTH_SHORT).show()
+            }
         }
        binding.listBack.setOnClickListener {
            if (isCheckedAdd==false){
@@ -82,9 +85,24 @@ class AddProductFragment : Fragment() {
                Snackbar.make(view,"Lütfen girilen adedi listeye ekleyin",Snackbar.LENGTH_SHORT).show()
            }
            }
-    removeProduct(view)
+    removeProduct()
         AddQuantity()
+        checkFloatingButton()
     }
+
+    private fun checkFloatingButton() {
+        binding.productRec.addOnScrollListener(object :RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if (dy > 0) {
+                    binding.openShet.hide()
+                } else if (dy < 0) {
+                    binding.openShet.show()
+                }
+            }
+        })
+    }
+
     @SuppressLint("MissingInflatedId")
     private fun AddQuantity() {
         addAdapter.addQuantity={product->
@@ -155,38 +173,27 @@ class AddProductFragment : Fragment() {
         productViewModel.realAllProduct().observe(viewLifecycleOwner, Observer {listPorduct->
             addAdapter.differ.submitList(listPorduct)
             searchText(listPorduct)
-
         })
 
     }
-    private fun removeProduct(view: View) {
-        val itemTouchHelperCallBack=object : ItemTouchHelper.SimpleCallback(
-            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
-            ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT
-        ){
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return true
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position= viewHolder.adapterPosition
-                val product =addAdapter.differ.currentList.get(position)
-                productViewModel.deleteProduct(product)
-                Snackbar.make(view,"Deleted article successfully", Snackbar.LENGTH_SHORT).apply {
-                    setAction("Geri Al"){
-                        productViewModel.insertProduct(product)
-                    }
-                    show()
-                }
-            }
-        }
-        ItemTouchHelper(itemTouchHelperCallBack).apply {
-            attachToRecyclerView(binding.productRec)
-        }
+    private fun removeProduct() {
+       addAdapter.deleteItem={
+           alertBuilder= AlertDialog.Builder(requireContext())
+           alertBuilder.setTitle("Uyarı")
+           alertBuilder.setMessage("Silmek istediğinizden emin misiniz?")
+           alertBuilder.setPositiveButton("Evet"){dialog,which->
+               productViewModel.deleteProduct(it)
+               alertBuilder.create().dismiss()
+           }
+           alertBuilder.setNegativeButton("Hayır"){dialog,which->
+               alertBuilder.create().dismiss()
+           }
+           alertBuilder.create().setOnShowListener {
+               alertBuilder.create().getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.parseColor("#FFE500"))
+               alertBuilder.create().getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FFE500"))
+           }
+           alertBuilder.show()
+       }
     }
     override fun onAttach(context: Context) {
         super.onAttach(context)
